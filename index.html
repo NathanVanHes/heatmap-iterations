@@ -1,14 +1,72 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><title>Heatmap Iterations</title>
-<style>body{font-family:system-ui;background:#0a0f1a;color:#e8e4dc;padding:40px;max-width:480px}a{color:#64D8AE;text-decoration:none}a:hover{text-decoration:underline}li{margin-bottom:12px}</style>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noon Academy — Product Specs</title>
+<style>
+  * { box-sizing: border-box; margin: 0 }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #0a0f1a; color: #e8e4dc; min-height: 100vh; padding: 48px 24px }
+  .wrap { max-width: 720px; margin: 0 auto }
+  .logo { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px }
+  .logo strong { font-size: 22px; font-weight: 500; letter-spacing: -0.3px }
+  .logo span { font-family: monospace; font-size: 11px; color: rgba(232,228,220,0.35) }
+  .sub { font-size: 14px; color: rgba(232,228,220,0.55); margin-bottom: 40px }
+  .grid { display: flex; flex-direction: column; gap: 16px }
+  .card {
+    display: block;
+    background: #10172a;
+    border: 1px solid rgba(232,228,220,0.08);
+    border-radius: 6px;
+    padding: 28px 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 200ms, transform 200ms;
+  }
+  .card:hover { border-color: rgba(100,216,174,0.35); transform: translateY(-1px) }
+  .card__tag {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+  }
+  .tag--green { background: rgba(100,216,174,0.14); color: #64D8AE }
+  .tag--gold { background: rgba(201,162,39,0.12); color: #c9a227 }
+  .tag--blue { background: rgba(107,163,255,0.12); color: #6BA3FF }
+  .card__title { font-size: 18px; font-weight: 500; margin-bottom: 6px }
+  .card__desc { font-size: 13px; color: rgba(232,228,220,0.55); line-height: 1.5 }
+  .card__arrow { float: right; font-size: 18px; color: rgba(232,228,220,0.25); margin-top: -28px; transition: color 200ms }
+  .card:hover .card__arrow { color: #64D8AE }
+</style>
 </head>
 <body>
-<h2>Heatmap Iterations</h2>
-<ul>
-  <li><a href="heatmap-thresholds.html">Heatmap Thresholds</a></li>
-  <li><a href="task-cards.html">Task Cards</a></li>
-  <li><a href="exam-roundup.html">Exam Roundup</a></li>
-</ul>
+<div class="wrap">
+  <div class="logo"><strong>Noon Academy</strong><span>Product Specs</span></div>
+  <p class="sub">Interactive prototypes for engineering reference. Click to open.</p>
+  <div class="grid">
+    <a class="card" href="heatmap-thresholds.html">
+      <div class="card__tag tag--green">Mastery</div>
+      <div class="card__arrow">&rsaquo;</div>
+      <div class="card__title">Heatmap Thresholds</div>
+      <div class="card__desc">Arabic Qudrat curriculum mastery heatmap. Per-subject thresholds (Quant 80, Verbal 70) on a 0-100 scale with colour-coded cells showing student progress across topics.</div>
+    </a>
+    <a class="card" href="task-cards.html">
+      <div class="card__tag tag--gold">Tasks</div>
+      <div class="card__arrow">&rsaquo;</div>
+      <div class="card__title">Task Cards</div>
+      <div class="card__desc">Exam countdown cards showing daily tasks, study targets, and time-based urgency states. Cards adapt as the exam date approaches.</div>
+    </a>
+    <a class="card" href="exam-roundup.html">
+      <div class="card__tag tag--blue">Exam</div>
+      <div class="card__arrow">&rsaquo;</div>
+      <div class="card__title">Exam Roundup</div>
+      <div class="card__desc">Three exam prep states — preparing, all topics mastered, and mock test results. Shows the journey from preparation through to readiness.</div>
+    </a>
+  </div>
+</div>
 </body>
 </html>
