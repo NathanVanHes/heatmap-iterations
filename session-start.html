@@ -21,17 +21,10 @@
   --r:8px;
 }
 body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);min-height:100vh}
+.page{max-width:480px;margin:0 auto;padding:32px 24px}
+.section{margin-bottom:28px;opacity:0;transform:translateY(6px);animation:cardIn 0.35s ease forwards}
+@keyframes cardIn{to{opacity:1;transform:translateY(0)}}
 
-.topbar{background:var(--bg-raised);border-bottom:1px solid rgba(20,20,20,0.08);position:sticky;top:0;z-index:10}
-.topbar__inner{max-width:480px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:56px}
-.topbar h1{font-size:16px;font-weight:700;margin:0}
-
-.page{max-width:480px;margin:0 auto;padding:24px}
-.page-sub{font-size:12px;color:var(--fg-muted);margin-bottom:28px;line-height:1.5}
-.section{margin-bottom:36px}
-.section-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--fg-muted);margin-bottom:12px}
-
-/* ─── Topic row — same as exam-roundup ─── */
 .topic{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid rgba(20,20,20,0.06)}
 .topic:last-child{border-bottom:0}
 .topic__tile{width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex:none;position:relative;overflow:hidden}
@@ -41,25 +34,17 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 .topic__name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .topic__sub{font-size:12px;color:var(--fg-secondary);margin-top:2px;font-family:var(--font-mono);display:flex;align-items:center;gap:3px}
 
-/* ─── Gradient bar — same as legend-key in heatmap ─── */
 .gbar{position:relative;margin-top:10px}
 .gbar__track{width:100%;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--red),var(--gold),var(--green))}
 .gbar__pos{position:absolute;top:0;transform:translate(-50%,-25%);width:14px;height:14px;border-radius:50%;border:2.5px solid var(--bg);box-shadow:0 0 0 1px rgba(20,20,20,0.15),0 1px 3px rgba(0,0,0,0.15);transition:left 0.8s cubic-bezier(0.22,0.61,0.36,1)}
-.gbar__target{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--fg);border-radius:1px;opacity:0.2}
-.gbar__labels{display:flex;justify-content:space-between;margin-top:6px;position:relative}
+.gbar__target{position:absolute;top:0;height:8px;width:2px;background:var(--fg);border-radius:1px;opacity:0.2}
+.gbar__labels{display:flex;margin-top:6px;position:relative}
 .gbar__labels span{font-family:var(--font-mono);font-size:10px;color:var(--fg-muted)}
 .gbar__mastery-label{position:absolute;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;font-weight:600;color:var(--fg-secondary);display:flex;align-items:center;gap:2px}
 </style>
 </head>
 <body>
-
-<div class="topbar">
-  <div class="topbar__inner"><h1>Start of Session</h1></div>
-</div>
-
 <div class="page">
-  <div class="page-sub">Before a homework session begins, show the student where they stand on each topic. The gradient bar shows their position and how far from mastery.</div>
-
   <div id="content"></div>
 </div>
 
@@ -83,14 +68,12 @@ function renderTopicWithBar(t) {
 
   var h = '<div class="topic">';
 
-  // Tile — same as exam-roundup
   if (isMastered) {
     h += '<div class="topic__tile is-mastered" style="background:' + col + '">' + starSvg14 + '</div>';
   } else {
     h += '<div class="topic__tile" style="background:' + col + '"><span class="topic__tile-score">' + t.score + '</span></div>';
   }
 
-  // Info + bar
   h += '<div class="topic__info">';
   h += '<div class="topic__name">' + t.name + '</div>';
 
@@ -104,42 +87,35 @@ function renderTopicWithBar(t) {
   h += '<div class="gbar">';
   h += '<div class="gbar__track"></div>';
   h += '<div class="gbar__pos" style="left:' + t.score + '%;background:' + col + '"></div>';
-  h += '<div class="gbar__target" style="left:' + mastery + '%"></div>';
-  h += '<div class="gbar__labels">';
-  h += '<span>0</span>';
-  h += '<span class="gbar__mastery-label" style="left:' + mastery + '%">' + starInline + ' ' + mastery + '</span>';
-  h += '<span>100</span>';
-  h += '</div></div>';
 
+  if (!isMastered) {
+    h += '<div class="gbar__target" style="left:' + mastery + '%"></div>';
+    h += '<div class="gbar__labels">';
+    h += '<span class="gbar__mastery-label" style="left:' + mastery + '%">' + starInline + ' ' + mastery + '</span>';
+    h += '</div>';
+  }
+
+  h += '</div>';
   h += '</div></div>';
   return h;
 }
 
-var examples = [
-  { label: 'Far from target', topics: [{ name: 'المستقيمات', score: 18 }] },
-  { label: 'Behind', topics: [{ name: 'القوى', score: 35 }] },
-  { label: 'Getting close', topics: [{ name: 'الاعداد و خصائصها', score: 72 }] },
-  { label: 'Just under', topics: [{ name: 'النسبة والتناسب', score: 78 }] },
-  { label: 'Mastered', topics: [{ name: 'الإحصاء', score: 94 }] },
-  { label: 'Multiple topics — mixed', topics: [
-    { name: 'المستقيمات', score: 18 },
-    { name: 'الاعداد و خصائصها', score: 72 },
-    { name: 'الإحصاء', score: 94 },
-  ]},
+var topics = [
+  { name: 'المستقيمات', score: 18 },
+  { name: 'القوى', score: 35 },
+  { name: 'الاعداد و خصائصها', score: 72 },
+  { name: 'النسبة والتناسب', score: 78 },
+  { name: 'الإحصاء', score: 94 },
 ];
 
 var h = '';
-examples.forEach(function(ex, i) {
-  h += '<div class="section" style="opacity:0;animation:cardIn 0.35s ease ' + (i * 80) + 'ms forwards">';
-  h += '<div class="section-label">' + ex.label + '</div>';
-  ex.topics.forEach(function(t) { h += renderTopicWithBar(t); });
+topics.forEach(function(t, i) {
+  h += '<div class="section" style="animation-delay:' + (i * 80) + 'ms">';
+  h += renderTopicWithBar(t);
   h += '</div>';
 });
 
 document.getElementById('content').innerHTML = h;
 </script>
-
-<style>@keyframes cardIn{to{opacity:1;transform:translateY(0)}}</style>
-
 </body>
 </html>
