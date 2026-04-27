@@ -28,9 +28,7 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 @keyframes cardIn{to{opacity:1;transform:translateY(0)}}
 
 .hw__due{font-family:var(--font-mono);font-size:11px;font-weight:600;margin-bottom:6px}
-.hw__due--urgent{color:var(--red)}
-.hw__due--soon{color:#C9A227}
-.hw__due--ok{color:var(--green)}
+.hw__due{color:var(--red)}
 .hw__title{font-size:15px;font-weight:600;line-height:1.3}
 .hw__meta{font-size:11px;color:var(--fg-muted);margin-top:3px}
 .hw__topics{display:flex;align-items:center;gap:8px;margin-top:14px}
@@ -51,9 +49,8 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 
   <!-- Single topic -->
   <div class="hw" style="animation-delay:0ms">
-    <div class="hw__due hw__due--urgent">Due in 2 hours</div>
+    <div class="hw__due">Due in 4 hours</div>
     <div class="hw__title">Ratios & proportions practice</div>
-    <div class="hw__meta">10 questions</div>
     <div class="hw__topics">
       <div class="topic-single">
         <div class="topic-dot" style="background:#F07A3D"></div>
@@ -64,9 +61,8 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 
   <!-- 3 topics -->
   <div class="hw" style="animation-delay:80ms">
-    <div class="hw__due hw__due--soon">Due in 12 hours</div>
+    <div class="hw__due">Due in 4 hours</div>
     <div class="hw__title">Weekly review — mixed practice</div>
-    <div class="hw__meta">15 questions</div>
     <div class="hw__topics">
       <div class="topic-multi">
         <div class="topic-tile" style="background:#F07A3D"></div>
@@ -79,9 +75,8 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 
   <!-- 15 topics -->
   <div class="hw" style="animation-delay:160ms">
-    <div class="hw__due hw__due--ok">Due in 3 days</div>
+    <div class="hw__due">Due in 4 hours</div>
     <div class="hw__title">Qudrat full mock prep</div>
-    <div class="hw__meta">30 questions</div>
     <div class="hw__topics">
       <div class="topic-multi">
         <div class="topic-tile" style="background:var(--red)"></div>
