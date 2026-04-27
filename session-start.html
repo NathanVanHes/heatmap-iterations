@@ -16,8 +16,6 @@
   --green:#27BD86;
   --gold:#FFCB45;
   --red:#F03D3D;
-  --blue:#0084FF;
-  --iris:#B08AF9;
   --font-sans:'Inter',system-ui,sans-serif;
   --font-mono:'JetBrains Mono','Inter',monospace;
   --r:8px;
@@ -29,58 +27,28 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 .topbar h1{font-size:16px;font-weight:700;margin:0}
 
 .page{max-width:480px;margin:0 auto;padding:24px}
-.page-sub{font-size:12px;color:var(--fg-muted);margin-bottom:24px;line-height:1.5}
+.page-sub{font-size:12px;color:var(--fg-muted);margin-bottom:28px;line-height:1.5}
 .section{margin-bottom:36px}
 .section-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--fg-muted);margin-bottom:12px}
 
-/* ─── Session card ─── */
-.sess{background:var(--bg-raised);border-radius:var(--r);margin-bottom:16px;overflow:hidden;opacity:0;transform:translateY(6px);animation:cardIn 0.35s ease forwards}
-@keyframes cardIn{to{opacity:1;transform:translateY(0)}}
+/* ─── Topic row — same as exam-roundup ─── */
+.topic{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid rgba(20,20,20,0.06)}
+.topic:last-child{border-bottom:0}
+.topic__tile{width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex:none;position:relative;overflow:hidden}
+.topic__tile-score{font-family:var(--font-mono);font-size:14px;font-weight:700;color:rgba(0,0,0,0.35)}
+.topic__tile.is-mastered::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0.15;background:repeating-linear-gradient(135deg,transparent,transparent 5px,rgba(0,0,0,0.4) 5px,rgba(0,0,0,0.4) 6.5px);border-radius:inherit}
+.topic__info{flex:1;min-width:0}
+.topic__name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topic__sub{font-size:12px;color:var(--fg-secondary);margin-top:2px;font-family:var(--font-mono);display:flex;align-items:center;gap:3px}
 
-.sess__head{padding:20px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.sess__title{font-size:16px;font-weight:700;line-height:1.3}
-.sess__meta{font-size:11px;color:var(--fg-muted);margin-top:3px}
-.sess__badge{font-family:var(--font-mono);font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;white-space:nowrap;flex:none}
-
-/* ─── Topic status block (inside session card) ─── */
-.topic-status{padding:16px 20px 20px}
-
-.ts{background:rgba(20,20,20,0.02);border-radius:6px;padding:14px 16px;margin-bottom:8px}
-.ts:last-child{margin-bottom:0}
-.ts__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.ts__name{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600}
-.ts__dot{width:10px;height:10px;border-radius:3px;flex:none}
-.ts__score{font-family:var(--font-mono);font-size:20px;font-weight:700}
-.ts__target-label{font-family:var(--font-mono);font-size:10px;color:var(--fg-muted);display:flex;align-items:center;gap:3px}
-
-/* ─── Gradient bar ─── */
-.gbar{position:relative;height:10px;border-radius:5px;background:linear-gradient(90deg,var(--red) 0%,var(--gold) 50%,var(--green) 100%);margin-bottom:8px}
-.gbar__pos{position:absolute;top:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;border:2.5px solid var(--bg-raised);box-shadow:0 0 0 1px rgba(20,20,20,0.12),0 1px 4px rgba(0,0,0,0.15);transition:left 0.8s cubic-bezier(0.22,0.61,0.36,1)}
-.gbar__target{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--fg);border-radius:1px;opacity:0.25}
-.gbar__target-flag{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:8px;font-weight:700;color:var(--fg);white-space:nowrap;display:flex;align-items:center;gap:2px}
-.gbar__target-flag svg{width:8px;height:8px}
-
-.ts__footer{display:flex;align-items:center;justify-content:space-between}
-.ts__gap{font-family:var(--font-mono);font-size:11px;font-weight:600}
-.ts__gap--behind{color:var(--red)}
-.ts__gap--close{color:var(--gold)}
-.ts__gap--mastered{color:var(--green)}
-.ts__mastered{display:flex;align-items:center;gap:3px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--green)}
-
-/* ─── Action button ─── */
-.sess__action{padding:0 20px 20px}
-.sess__btn{width:100%;display:flex;align-items:center;justify-content:center;gap:6px;font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--bg-raised);background:var(--green);border:0;padding:12px;border-radius:6px;cursor:pointer;transition:opacity 0.15s}
-.sess__btn:hover{opacity:0.9}
-.sess__btn svg{width:14px;height:14px}
-
-/* ─── Multi-topic summary row (for 2+ topics) ─── */
-.ts-summary{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(20,20,20,0.02);border-radius:6px;margin-bottom:8px}
-.ts-summary__cluster{display:flex}
-.ts-summary__mini{width:18px;height:18px;border-radius:3px;border:2px solid rgba(20,20,20,0.02);margin-left:-5px}
-.ts-summary__mini:first-child{margin-left:0}
-.ts-summary__text{font-family:var(--font-mono);font-size:11px;color:var(--fg-secondary)}
-.ts-summary__text b{color:var(--fg)}
-
+/* ─── Gradient bar — same as legend-key in heatmap ─── */
+.gbar{position:relative;margin-top:10px}
+.gbar__track{width:100%;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--red),var(--gold),var(--green))}
+.gbar__pos{position:absolute;top:0;transform:translate(-50%,-25%);width:14px;height:14px;border-radius:50%;border:2.5px solid var(--bg);box-shadow:0 0 0 1px rgba(20,20,20,0.15),0 1px 3px rgba(0,0,0,0.15);transition:left 0.8s cubic-bezier(0.22,0.61,0.36,1)}
+.gbar__target{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--fg);border-radius:1px;opacity:0.2}
+.gbar__labels{display:flex;justify-content:space-between;margin-top:6px;position:relative}
+.gbar__labels span{font-family:var(--font-mono);font-size:10px;color:var(--fg-muted)}
+.gbar__mastery-label{position:absolute;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;font-weight:600;color:var(--fg-secondary);display:flex;align-items:center;gap:2px}
 </style>
 </head>
 <body>
@@ -90,88 +58,14 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 </div>
 
 <div class="page">
-  <div class="page-sub">Before a homework session begins, show the student where they stand on each topic. The gradient bar shows their current score position and how far they are from the mastery target of 80.</div>
+  <div class="page-sub">Before a homework session begins, show the student where they stand on each topic. The gradient bar shows their position and how far from mastery.</div>
 
-  <!-- ═══════ SINGLE TOPIC — BEHIND ═══════ -->
-  <div class="section">
-    <div class="section-label">Single topic — behind</div>
-
-    <div class="sess" style="animation-delay:0ms">
-      <div class="sess__head">
-        <div>
-          <div class="sess__title">Ratios & proportions practice</div>
-          <div class="sess__meta">10 questions · Assigned by Mr. Hassan</div>
-        </div>
-        <div class="sess__badge" style="background:rgba(240,61,61,0.06);color:var(--red)">2h left</div>
-      </div>
-      <div class="topic-status" id="single-behind"></div>
-      <div class="sess__action">
-        <button class="sess__btn"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M7 3l4 4-4 4"/></svg>Start homework</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════ SINGLE TOPIC — CLOSE ═══════ -->
-  <div class="section">
-    <div class="section-label">Single topic — close to target</div>
-
-    <div class="sess" style="animation-delay:100ms">
-      <div class="sess__head">
-        <div>
-          <div class="sess__title">Reading comprehension drill</div>
-          <div class="sess__meta">8 questions · Assigned by Ms. Al-Harbi</div>
-        </div>
-        <div class="sess__badge" style="background:rgba(201,162,39,0.10);color:#C9A227">8h left</div>
-      </div>
-      <div class="topic-status" id="single-close"></div>
-      <div class="sess__action">
-        <button class="sess__btn"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M7 3l4 4-4 4"/></svg>Start homework</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════ SINGLE TOPIC — MASTERED ═══════ -->
-  <div class="section">
-    <div class="section-label">Single topic — already mastered</div>
-
-    <div class="sess" style="animation-delay:200ms">
-      <div class="sess__head">
-        <div>
-          <div class="sess__title">Vocabulary in context</div>
-          <div class="sess__meta">12 questions · Assigned by Ms. Noor</div>
-        </div>
-        <div class="sess__badge" style="background:rgba(39,189,134,0.08);color:var(--green)">2 days</div>
-      </div>
-      <div class="topic-status" id="single-mastered"></div>
-      <div class="sess__action">
-        <button class="sess__btn"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M7 3l4 4-4 4"/></svg>Start homework</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════ MULTIPLE TOPICS ═══════ -->
-  <div class="section">
-    <div class="section-label">Multiple topics — mixed status</div>
-
-    <div class="sess" style="animation-delay:300ms">
-      <div class="sess__head">
-        <div>
-          <div class="sess__title">Weekly review — mixed practice</div>
-          <div class="sess__meta">15 questions · Assigned by Mr. Hassan</div>
-        </div>
-        <div class="sess__badge" style="background:rgba(201,162,39,0.10);color:#C9A227">12h left</div>
-      </div>
-      <div class="topic-status" id="multi-topics"></div>
-      <div class="sess__action">
-        <button class="sess__btn"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h8M7 3l4 4-4 4"/></svg>Start homework</button>
-      </div>
-    </div>
-  </div>
-
+  <div id="content"></div>
 </div>
 
 <script>
-var starSvg = '<svg viewBox="0 0 12 12" fill="currentColor" width="8" height="8"><path d="M6 0.5L7.5 4.2L11.5 4.6L8.5 7.2L9.3 11.2L6 9.3L2.7 11.2L3.5 7.2L0.5 4.6L4.5 4.2Z"/></svg>';
+var starInline = '<svg width="10" height="10" viewBox="0 0 12 12" fill="#141414" style="vertical-align:-1px"><path d="M6 0.5L7.5 4.2L11.5 4.6L8.5 7.2L9.3 11.2L6 9.3L2.7 11.2L3.5 7.2L0.5 4.6L4.5 4.2Z"/></svg>';
+var starSvg14 = '<svg width="14" height="14" viewBox="0 0 12 12" fill="#141414"><path d="M6 0.5L7.5 4.2L11.5 4.6L8.5 7.2L9.3 11.2L6 9.3L2.7 11.2L3.5 7.2L0.5 4.6L4.5 4.2Z"/></svg>';
 var mastery = 80;
 
 function scoreColor(s) {
@@ -182,74 +76,70 @@ function scoreColor(s) {
   return 'rgb('+Math.round(r)+','+Math.round(g)+','+Math.round(b)+')';
 }
 
-function renderTopic(topic) {
-  var col = scoreColor(topic.score);
-  var gap = mastery - topic.score;
-  var isMastered = topic.score >= mastery;
-  var gapClass = isMastered ? 'ts__gap--mastered' : gap <= 15 ? 'ts__gap--close' : 'ts__gap--behind';
+function renderTopicWithBar(t) {
+  var col = scoreColor(t.score);
+  var gap = mastery - t.score;
+  var isMastered = t.score >= mastery;
 
-  var h = '<div class="ts">';
-  h += '<div class="ts__top">';
-  h += '<div class="ts__name"><div class="ts__dot" style="background:' + col + '"></div>' + topic.name + '</div>';
-  h += '<div class="ts__score" style="color:' + col + '">' + topic.score + '</div>';
-  h += '</div>';
+  var h = '<div class="topic">';
+
+  // Tile — same as exam-roundup
+  if (isMastered) {
+    h += '<div class="topic__tile is-mastered" style="background:' + col + '">' + starSvg14 + '</div>';
+  } else {
+    h += '<div class="topic__tile" style="background:' + col + '"><span class="topic__tile-score">' + t.score + '</span></div>';
+  }
+
+  // Info + bar
+  h += '<div class="topic__info">';
+  h += '<div class="topic__name">' + t.name + '</div>';
+
+  if (isMastered) {
+    h += '<div class="topic__sub">' + starInline + ' Mastered</div>';
+  } else {
+    h += '<div class="topic__sub">Reach ' + starInline + ' 80+ (' + gap + ' remaining)</div>';
+  }
 
   // Gradient bar
   h += '<div class="gbar">';
-  h += '<div class="gbar__pos" style="left:' + topic.score + '%;background:' + col + '"></div>';
-  h += '<div class="gbar__target" style="left:' + mastery + '%">';
-  h += '<div class="gbar__target-flag">' + starSvg + ' ' + mastery + '</div>';
-  h += '</div>';
-  h += '</div>';
+  h += '<div class="gbar__track"></div>';
+  h += '<div class="gbar__pos" style="left:' + t.score + '%;background:' + col + '"></div>';
+  h += '<div class="gbar__target" style="left:' + mastery + '%"></div>';
+  h += '<div class="gbar__labels">';
+  h += '<span>0</span>';
+  h += '<span class="gbar__mastery-label" style="left:' + mastery + '%">' + starInline + ' ' + mastery + '</span>';
+  h += '<span>100</span>';
+  h += '</div></div>';
 
-  // Footer
-  h += '<div class="ts__footer">';
-  h += '<div class="ts__target-label">Target ' + starSvg + ' ' + mastery + '+</div>';
-  if (isMastered) {
-    h += '<div class="ts__mastered">' + starSvg + ' Mastered</div>';
-  } else {
-    h += '<div class="' + gapClass + '">' + gap + ' to go</div>';
-  }
-  h += '</div>';
-  h += '</div>';
-  return h;
-}
-
-function renderSummaryRow(topics) {
-  var mastered = topics.filter(function(t){ return t.score >= mastery; }).length;
-  var behind = topics.length - mastered;
-  var h = '<div class="ts-summary">';
-  h += '<div class="ts-summary__cluster">';
-  topics.forEach(function(t) {
-    h += '<div class="ts-summary__mini" style="background:' + scoreColor(t.score) + '"></div>';
-  });
-  h += '</div>';
-  h += '<div class="ts-summary__text"><b>' + topics.length + ' topics</b>';
-  if (mastered > 0 && behind > 0) h += ' · ' + mastered + ' mastered, ' + behind + ' unresolved';
-  else if (mastered === topics.length) h += ' · all mastered';
-  else h += ' · ' + behind + ' unresolved';
   h += '</div></div>';
   return h;
 }
 
-// Single topic — behind (score 35)
-document.getElementById('single-behind').innerHTML = renderTopic({ name: 'Quantitative reasoning', score: 35 });
-
-// Single topic — close (score 72)
-document.getElementById('single-close').innerHTML = renderTopic({ name: 'Inference & implied meaning', score: 72 });
-
-// Single topic — mastered (score 91)
-document.getElementById('single-mastered').innerHTML = renderTopic({ name: 'Verbal reasoning', score: 91 });
-
-// Multiple topics
-var multiTopics = [
-  { name: 'Quantitative reasoning', score: 35 },
-  { name: 'Inference & implied meaning', score: 72 },
-  { name: 'Verbal reasoning', score: 91 },
+var examples = [
+  { label: 'Far from target', topics: [{ name: 'المستقيمات', score: 18 }] },
+  { label: 'Behind', topics: [{ name: 'القوى', score: 35 }] },
+  { label: 'Getting close', topics: [{ name: 'الاعداد و خصائصها', score: 72 }] },
+  { label: 'Just under', topics: [{ name: 'النسبة والتناسب', score: 78 }] },
+  { label: 'Mastered', topics: [{ name: 'الإحصاء', score: 94 }] },
+  { label: 'Multiple topics — mixed', topics: [
+    { name: 'المستقيمات', score: 18 },
+    { name: 'الاعداد و خصائصها', score: 72 },
+    { name: 'الإحصاء', score: 94 },
+  ]},
 ];
-var multiEl = document.getElementById('multi-topics');
-multiEl.innerHTML = renderSummaryRow(multiTopics) + multiTopics.map(renderTopic).join('');
+
+var h = '';
+examples.forEach(function(ex, i) {
+  h += '<div class="section" style="opacity:0;animation:cardIn 0.35s ease ' + (i * 80) + 'ms forwards">';
+  h += '<div class="section-label">' + ex.label + '</div>';
+  ex.topics.forEach(function(t) { h += renderTopicWithBar(t); });
+  h += '</div>';
+});
+
+document.getElementById('content').innerHTML = h;
 </script>
+
+<style>@keyframes cardIn{to{opacity:1;transform:translateY(0)}}</style>
 
 </body>
 </html>
