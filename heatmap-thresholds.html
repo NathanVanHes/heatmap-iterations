@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mastery Heatmap - Noon Academy</title>
+<title>خريطة الإتقان - نون أكاديمي</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 *{box-sizing:border-box}
@@ -32,13 +32,13 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 
 /* Layout */
 .page{max-width:720px;margin:0 auto;padding:32px 40px;position:relative}
-@media(max-width:768px){.page{padding:20px 16px}.topbar__inner{padding:0 16px}.key-inner{padding:10px 16px !important}.mastery-link{margin-left:0 !important;flex:none !important;width:100% !important;text-align:left !important}}
+@media(max-width:768px){.page{padding:20px 16px}.topbar__inner{padding:0 16px}.key-inner{padding:10px 16px !important}.mastery-link{margin-inline-start:0 !important;flex:none !important;width:100% !important;text-align:start !important}}
 
 /* Section header */
 .grid-section__header{display:flex;align-items:baseline;gap:8px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid rgba(20,20,20,0.06)}
 .grid-section__header .grid-section__label{margin-bottom:0}
 .grid-section__exam{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:#0084FF}
-.grid-section__right{margin-left:auto;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--fg-muted);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.grid-section__right{margin-inline-start:auto;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--fg-muted);display:flex;align-items:center;gap:6px;white-space:nowrap}
 
 /* Legend strip */
 .legend-strip{background:var(--bg-raised);border-bottom:1px solid rgba(20,20,20,0.08)}
@@ -61,7 +61,7 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 @keyframes tileIn{to{opacity:1;transform:translateY(0)}}
 @keyframes confettiFall{0%{opacity:1;transform:translateY(0) rotate(0deg)}100%{opacity:0;transform:translateY(200px) rotate(360deg)}}
 .tile__name{font-size:11px;font-weight:600;color:rgba(0,0,0,0.55);text-align:center;line-height:1.2;padding:0 8px}
-.tile__score{position:absolute;top:5px;right:6px;font-family:var(--font-mono);font-size:11px;font-weight:700;color:rgba(0,0,0,0.3);display:flex;align-items:center;gap:2px;z-index:2}
+.tile__score{position:absolute;top:5px;left:6px;font-family:var(--font-mono);font-size:11px;font-weight:700;color:rgba(0,0,0,0.85);display:flex;align-items:center;gap:2px;z-index:2}
 /* Mastery tile — confetti burst then star */
 .tile.is-mastered .tile__score{opacity:0}
 .tile.is-mastered.is-revealed .tile__score{opacity:1;animation:stampIn 0.3s ease}
@@ -71,14 +71,14 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 .tile.is-mastered.is-faded::after{opacity:0.6}
 @keyframes stampIn{0%{transform:scale(1.8);opacity:0}70%{transform:scale(0.95);opacity:1}100%{transform:scale(1);opacity:1}}
 @keyframes tileThrob{0%{transform:scale(1)}15%{transform:scale(1.06)}30%{transform:scale(0.97)}45%{transform:scale(1.04)}60%{transform:scale(0.99)}75%{transform:scale(1.02)}100%{transform:scale(1)}}
-.tile__diff{position:absolute;bottom:4px;right:5px;display:flex;align-items:center;gap:2px;font-family:var(--font-mono);font-size:10px;font-weight:600;color:rgba(0,0,0,0.2);z-index:2}
+.tile__diff{position:absolute;bottom:4px;left:5px;display:flex;align-items:center;gap:2px;font-family:var(--font-mono);font-size:10px;font-weight:600;color:rgba(0,0,0,0.2);z-index:2}
 /* Chapter subheader */
 .chapter-label{font-size:10px;font-weight:500;color:var(--fg-muted);padding:8px 0 4px;grid-column:1/-1}
 
 /* Drilldown panel — slides in from right */
 .drill-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.2);z-index:50;opacity:0;pointer-events:none;transition:opacity 0.25s ease}
 .drill-overlay.is-open{opacity:1;pointer-events:auto}
-.drill{position:fixed;top:0;right:0;bottom:0;width:420px;max-width:100%;background:var(--bg-raised);z-index:51;display:flex;flex-direction:column;transform:translateX(100%);transition:transform 0.32s cubic-bezier(0.22,0.61,0.36,1);box-shadow:-4px 0 24px rgba(0,0,0,0.08)}
+.drill{position:fixed;top:0;left:0;bottom:0;width:420px;max-width:100%;background:var(--bg-raised);z-index:51;display:flex;flex-direction:column;transform:translateX(-100%);transition:transform 0.32s cubic-bezier(0.22,0.61,0.36,1);box-shadow:4px 0 24px rgba(0,0,0,0.08)}
 .drill.is-open{transform:translateX(0)}
 .drill__head{padding:24px 28px;flex:none;display:flex;align-items:flex-start;justify-content:space-between}
 .drill__back{background:none;border:0;color:var(--fg-secondary);cursor:pointer;padding:4px;display:flex}
@@ -89,7 +89,8 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 
 /* Chart area */
 .chart{background:var(--bg);border-radius:var(--r);padding:12px 8px;margin-bottom:16px;overflow:visible}
-.chart__svg{width:100%;display:block;overflow:visible}
+.chart__svg{width:100%;display:block;overflow:visible;transform:scaleX(-1)}
+.chart__svg text{transform:scaleX(-1);transform-box:fill-box;transform-origin:center}
 .chart__dot{cursor:pointer}
 .chart__tooltip{opacity:0;pointer-events:none;transition:opacity 0.1s}
 .chart__dot:hover .chart__tooltip{opacity:1}
@@ -121,11 +122,11 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 <!-- Top bar -->
 <div class="topbar">
   <div class="topbar__inner">
-    <h1>Mastery</h1>
+    <h1>الإتقان</h1>
     <div style="flex:none" id="examSegment">
       <div class="seg-ctrl">
-        <button class="seg-ctrl__btn is-on" data-filter="all">All</button>
-        <button class="seg-ctrl__btn" data-filter="exam">Next exam</button>
+        <button class="seg-ctrl__btn is-on" data-filter="all">الكل</button>
+        <button class="seg-ctrl__btn" data-filter="exam">الاختبار القادم</button>
       </div>
     </div>
   </div>
@@ -134,9 +135,9 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 <div style="background:var(--bg-raised);border-bottom:1px solid rgba(20,20,20,0.06);position:sticky;top:64px;z-index:9">
   <div style="max-width:720px;margin:0 auto;padding:10px 40px;display:flex;align-items:center;gap:12px 16px;font-size:11px;color:var(--fg-muted);flex-wrap:wrap" class="key-inner">
     <span style="display:inline-flex;align-items:center;gap:4px"><span style="font-family:var(--font-mono);font-size:10px">0</span><span style="width:80px;height:24px;border-radius:4px;background:linear-gradient(90deg,#F03D3D,#FFCB45,#27BD86)"></span><span style="font-family:var(--font-mono);font-size:10px">100</span></span>
-    <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-raised);border:1px solid rgba(20,20,20,0.1);position:relative;flex:none;overflow:hidden;display:grid;place-items:center"><span style="position:absolute;inset:0;opacity:0.15;background:repeating-linear-gradient(135deg,transparent,transparent 3px,rgba(0,0,0,0.4) 3px,rgba(0,0,0,0.4) 4px)"></span><svg width="12" height="12" viewBox="0 0 12 12" fill="#141414" style="position:relative;z-index:1"><path d="M6 0.5L7.5 4.2L11.5 4.6L8.5 7.2L9.3 11.2L6 9.3L2.7 11.2L3.5 7.2L0.5 4.6L4.5 4.2Z"/></svg></span> Mastered</span>
-    <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-disabled);flex:none;display:grid;place-items:center"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="var(--fg-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="10" height="7" rx="1.5"/><path d="M5 8V5a3 3 0 0 1 6 0v3"/></svg></span> Not started</span>
-    <button class="mastery-link" style="margin-left:auto;background:none;border:0;font:inherit;font-size:11px;color:var(--fg-muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px;padding:0;flex:none" onclick="openMasteryInfo()">How does mastery work?</button>
+    <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-raised);border:1px solid rgba(20,20,20,0.1);position:relative;flex:none;overflow:hidden;display:grid;place-items:center"><span style="position:absolute;inset:0;opacity:0.15;background:repeating-linear-gradient(135deg,transparent,transparent 3px,rgba(0,0,0,0.4) 3px,rgba(0,0,0,0.4) 4px)"></span><svg width="12" height="12" viewBox="0 0 12 12" fill="#141414" style="position:relative;z-index:1"><path d="M6 0.5L7.5 4.2L11.5 4.6L8.5 7.2L9.3 11.2L6 9.3L2.7 11.2L3.5 7.2L0.5 4.6L4.5 4.2Z"/></svg></span> متقَن</span>
+    <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-disabled);flex:none;display:grid;place-items:center"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="var(--fg-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="10" height="7" rx="1.5"/><path d="M5 8V5a3 3 0 0 1 6 0v3"/></svg></span> ما بدأت</span>
+    <button class="mastery-link" style="margin-inline-start:auto;background:none;border:0;font:inherit;font-size:11px;color:var(--fg-muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px;padding:0;flex:none" onclick="openMasteryInfo()">كيف يشتغل الإتقان؟</button>
   </div>
 </div>
 
@@ -145,7 +146,7 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
   <div class="grid-section">
     <div class="grid-section__header">
       <div class="grid-section__label">الجزء الكمي</div>
-      <div class="grid-section__right"><span class="grid-section__exam" id="quantExam" style="display:none">Exam in 5 days ·</span> <span style="display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--fg-secondary)"><svg width="14" height="14" viewBox="0 0 12 12" fill="#141414" style="flex:none"><path d="M6 0.5L7.5 4.2L11.5 4.6L8.5 7.2L9.3 11.2L6 9.3L2.7 11.2L3.5 7.2L0.5 4.6L4.5 4.2Z"/></svg>80+</span> <span style="font-size:11px;color:var(--fg-muted);font-weight:400">Level 1</span></div>
+      <div class="grid-section__right"><span class="grid-section__exam" id="quantExam" style="display:none">الاختبار بعد ٥ أيام ·</span> <span style="display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--fg-secondary)"><svg width="14" height="14" viewBox="0 0 12 12" fill="#141414" style="flex:none"><path d="M6 0.5L7.5 4.2L11.5 4.6L8.5 7.2L9.3 11.2L6 9.3L2.7 11.2L3.5 7.2L0.5 4.6L4.5 4.2Z"/></svg>80+</span> <span style="font-size:11px;color:var(--fg-muted);font-weight:400">المستوى ١</span></div>
     </div>
     <div class="tile-grid" id="mathGrid"></div>
   </div>
@@ -154,7 +155,7 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
   <div class="grid-section">
     <div class="grid-section__header">
       <div class="grid-section__label">الجزء اللفظي</div>
-      <div class="grid-section__right"><span class="grid-section__exam" id="verbalExam" style="display:none">Exam in 7 days ·</span> <span style="display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--fg-secondary)"><svg width="14" height="14" viewBox="0 0 12 12" fill="#141414" style="flex:none"><path d="M6 0.5L7.5 4.2L11.5 4.6L8.5 7.2L9.3 11.2L6 9.3L2.7 11.2L3.5 7.2L0.5 4.6L4.5 4.2Z"/></svg>70+</span> <span style="font-size:11px;color:var(--fg-muted);font-weight:400">Level 2</span></div>
+      <div class="grid-section__right"><span class="grid-section__exam" id="verbalExam" style="display:none">الاختبار بعد ٧ أيام ·</span> <span style="display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--fg-secondary)"><svg width="14" height="14" viewBox="0 0 12 12" fill="#141414" style="flex:none"><path d="M6 0.5L7.5 4.2L11.5 4.6L8.5 7.2L9.3 11.2L6 9.3L2.7 11.2L3.5 7.2L0.5 4.6L4.5 4.2Z"/></svg>80+</span> <span style="font-size:11px;color:var(--fg-muted);font-weight:400">المستوى ٢</span></div>
     </div>
     <div class="tile-grid" id="readingGrid"></div>
   </div>
@@ -180,13 +181,13 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
   <div class="drill__body">
     <!-- Date range tabs -->
     <div class="range-tabs" id="rangeTabs">
-      <button class="is-on" data-range="week">This week</button>
-      <button data-range="semester">This semester</button>
+      <button class="is-on" data-range="week">هالأسبوع</button>
+      <button data-range="semester">هالفصل</button>
     </div>
 
     <div class="chart">
       <div id="chartContainer"></div>
-      <div id="chartLabels" style="display:flex;margin-top:8px"></div>
+      <div id="chartLabels" style="display:flex;flex-direction:row-reverse;margin-top:8px"></div>
     </div>
 
     <div id="drillChange" style="display:flex;align-items:center;gap:6px;margin-top:6px;font-family:var(--font-mono);font-size:11px"></div>
@@ -194,8 +195,8 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
   <div class="drill__cta">
     <div class="drill__cta-box">
       <div id="drillNudge" style="font-size:13px;color:var(--fg-secondary);line-height:1.5;margin-bottom:14px"></div>
-      <button class="btn-primary" id="drillCtaBtn" style="width:100%">Practice this topic</button>
-      <button style="background:none;border:0;font:inherit;font-size:11px;color:var(--fg-muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px;padding:0;display:block;width:100%;text-align:center;margin-top:12px" onclick="openMasteryInfo()">How does mastery work?</button>
+      <button class="btn-primary" id="drillCtaBtn" style="width:100%">تدرّب على هالموضوع</button>
+      <button style="background:none;border:0;font:inherit;font-size:11px;color:var(--fg-muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px;padding:0;display:block;width:100%;text-align:center;margin-top:12px" onclick="openMasteryInfo()">كيف يشتغل الإتقان؟</button>
     </div>
   </div>
 </div>
@@ -388,9 +389,9 @@ function openDrill(t, section, mastery) {
   var diff = (t.score !== null && t.weekStart !== null) ? t.score - t.weekStart : 0;
   var diffStr = '';
   var diffDisplay = Math.round(Math.abs(diff));
-  if (diff > 0) diffStr = '<span style="color:#27BD86;font-weight:600">+' + diffDisplay + '</span> <span data-period>this week</span>';
-  else if (diff < 0) diffStr = '<span style="color:#F03D3D;font-weight:600">-' + diffDisplay + '</span> <span data-period>this week</span>';
-  else diffStr = '<span style="color:var(--fg-muted)">No change <span data-period>this week</span></span>';
+  if (diff > 0) diffStr = '<span style="color:#27BD86;font-weight:600">+' + diffDisplay + '</span> <span data-period>هالأسبوع</span>';
+  else if (diff < 0) diffStr = '<span style="color:#F03D3D;font-weight:600">-' + diffDisplay + '</span> <span data-period>هالأسبوع</span>';
+  else diffStr = '<span style="color:var(--fg-muted)">ما تغيّر <span data-period>هالأسبوع</span></span>';
   var name = t.name.replace('\n',' ');
 
   if (t.score >= mastery) {
@@ -402,13 +403,13 @@ function openDrill(t, section, mastery) {
       '<div style="width:56px;height:56px;border-radius:50%;background:rgba(39,189,134,0.08);display:grid;place-items:center;margin-bottom:16px">' +
         '<svg width="24" height="24" viewBox="0 0 12 12" fill="#27BD86"><path d="M6 0.5L7.5 4.2L11.5 4.6L8.5 7.2L9.3 11.2L6 9.3L2.7 11.2L3.5 7.2L0.5 4.6L4.5 4.2Z"/></svg>' +
       '</div>' +
-      '<div style="font-size:15px;font-weight:600;margin-bottom:8px;color:var(--fg)">You\'ve mastered ' + name + '</div>' +
-      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.6;max-width:260px">Well done — you can move on to other topics. We\'ll revisit this before your exam and let you know if a refresher is needed.</div>' +
+      '<div style="font-size:15px;font-weight:600;margin-bottom:8px;color:var(--fg)">أتقنت ' + name + '</div>' +
+      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.6;max-width:260px">يا بطل — تقدر تنتقل لمواضيع ثانية. بنراجع هالموضوع قبل اختبارك ونخبرك إذا تحتاج مراجعة.</div>' +
     '</div>';
     var nudge = document.getElementById('drillNudge');
-    if (nudge) nudge.innerHTML = 'A quick practice session now and then keeps this locked in. Even a few minutes helps.';
+    if (nudge) nudge.innerHTML = 'تدريب سريع بين فترة وفترة يخلّي المعلومة ثابتة. حتى دقايق قليلة تفرق.';
     var ctaBtn = document.getElementById('drillCtaBtn');
-    if (ctaBtn) ctaBtn.textContent = 'Stay sharp';
+    if (ctaBtn) ctaBtn.textContent = 'خلّك جاهز';
     document.getElementById('drill').classList.add('is-open');
     document.getElementById('drillOverlay').classList.add('is-open');
     // Confetti
@@ -445,14 +446,14 @@ function openDrill(t, section, mastery) {
   var nudge = document.getElementById('drillNudge');
   var ctaBtn = document.getElementById('drillCtaBtn');
   if (t.score >= mastery - 15) {
-    nudge.innerHTML = 'You\'re close to mastering ' + name + '. One focused session could get you there.';
-    ctaBtn.textContent = 'Close the gap';
+    nudge.innerHTML = 'قربت تتقن ' + name + '. جلسة وحدة مركّزة ممكن توصّلك.';
+    ctaBtn.textContent = 'سدّ الفرق';
   } else if (t.score >= 40) {
-    nudge.innerHTML = 'You\'re building a foundation in ' + name + '. A practice set will help move this forward.';
-    ctaBtn.textContent = 'Practice ' + name;
+    nudge.innerHTML = 'بديت تبني أساس في ' + name + '. تمارين إضافية بتساعدك تتقدّم.';
+    ctaBtn.textContent = 'تدرّب على ' + name;
   } else {
-    nudge.innerHTML = name + ' is early days. Start from the basics and build up — every session gets you closer.';
-    ctaBtn.textContent = 'Start with the basics';
+    nudge.innerHTML = name + ' لسّه بالبداية. ابدأ من الأساسيات وارتقي — كل جلسة تقرّبك.';
+    ctaBtn.textContent = 'ابدأ بالأساسيات';
   }
 
   window._currentTopic = t;
@@ -573,7 +574,7 @@ function renderChart(data, labelTexts, mastered, masteryLine) {
 
 function generateThisWeek(t) {
   var s = t.score, ws = t.weekStart != null ? t.weekStart : s;
-  var days = ['Sat','Sun','Mon','Tue','Wed','Thu','Fri'];
+  var days = ['سبت','أحد','إثنين','ثلاثاء','أربعاء','خميس','جمعة'];
   var vals = [];
   for (var i = 0; i < 7; i++) {
     var progress = i / 6;
@@ -628,16 +629,16 @@ function wireRangeTabs() {
     var diff, period;
     if (range === 'week') {
       diff = (t.score !== null && t.weekStart !== null) ? t.score - t.weekStart : 0;
-      period = 'this week';
+      period = 'هالأسبوع';
     } else {
       diff = (t.score !== null && t.semStart !== null) ? t.score - t.semStart : 0;
-      period = 'this semester';
+      period = 'هالفصل';
     }
     var diffDisplay = Math.round(Math.abs(diff));
     var diffStr = '';
     if (diff > 0) diffStr = '<span style="color:#27BD86;font-weight:600">+' + diffDisplay + '</span> <span data-period>' + period + '</span>';
     else if (diff < 0) diffStr = '<span style="color:#F03D3D;font-weight:600">-' + diffDisplay + '</span> <span data-period>' + period + '</span>';
-    else diffStr = '<span style="color:var(--fg-muted)">No change <span data-period>' + period + '</span></span>';
+    else diffStr = '<span style="color:var(--fg-muted)">ما تغيّر <span data-period>' + period + '</span></span>';
     var badge = document.getElementById('drillBadge');
     var scoreSpan = badge.querySelector('span:first-child');
     if (scoreSpan) {
@@ -660,13 +661,13 @@ function openDrillGrey(t, section) {
   document.getElementById('drillTitle').textContent = t.name.replace('\n',' ');
   document.getElementById('drillSub').textContent = section;
   var badge = document.getElementById('drillBadge');
-  badge.innerHTML = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><rect x="3" y="8" width="10" height="7" rx="1.5"/><path d="M5 8V5a3 3 0 0 1 6 0v3"/></svg> Not started';
+  badge.innerHTML = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><rect x="3" y="8" width="10" height="7" rx="1.5"/><path d="M5 8V5a3 3 0 0 1 6 0v3"/></svg> ما بدأت';
   badge.style.background = 'var(--bg-disabled)';
   badge.style.color = 'var(--fg-muted)';
   badge.style.fontSize = '11px';
   var tabs = document.getElementById('rangeTabs');
   if (tabs) tabs.style.display = 'none';
-  document.getElementById('chartContainer').innerHTML = '<div style="display:flex;align-items:center;justify-content:center;color:var(--fg-muted);font-size:13px;height:100px">No data yet</div>';
+  document.getElementById('chartContainer').innerHTML = '<div style="display:flex;align-items:center;justify-content:center;color:var(--fg-muted);font-size:13px;height:100px">ما في بيانات بعد</div>';
   document.getElementById('chartLabels').innerHTML = '';
   var ch = document.getElementById('drillChange');
   ch.style.background = 'none';
@@ -676,9 +677,9 @@ function openDrillGrey(t, section) {
 
   // Set nudge and CTA for grey tile
   var nudge = document.getElementById('drillNudge');
-  nudge.innerHTML = 'Your class hasn\'t covered this yet, but you can get a head start.';
+  nudge.innerHTML = 'صفّك ما وصل لهالموضوع بعد، بس تقدر تبدأ من الحين.';
   var ctaBtn = document.getElementById('drillCtaBtn');
-  ctaBtn.textContent = 'Start early';
+  ctaBtn.textContent = 'ابدأ بدري';
   ctaBtn.disabled = false;
   ctaBtn.style.opacity = '';
   ctaBtn.style.cursor = '';
@@ -695,7 +696,7 @@ document.getElementById('examSegment').addEventListener('click', function(e) {
   document.getElementById('quantExam').style.display = examOn ? 'inline' : 'none';
   document.getElementById('verbalExam').style.display = examOn ? 'inline' : 'none';
   renderChapteredGrid('mathGrid', mathChapters, 'Quantitative', examOn, 80);
-  renderGrid('readingGrid', examOn ? readingTopics.filter(function(t){return t.exam}) : readingTopics, 'Verbal', 70);
+  renderGrid('readingGrid', examOn ? readingTopics.filter(function(t){return t.exam}) : readingTopics, 'Verbal', 80);
   shimmerMastered();
 });
 
@@ -704,7 +705,7 @@ var _origDrillBody = document.querySelector('.drill__body').innerHTML;
 
 // Init
 renderChapteredGrid('mathGrid', mathChapters, 'Quantitative', false, 80);
-renderGrid('readingGrid', readingTopics, 'Verbal', 70);
+renderGrid('readingGrid', readingTopics, 'Verbal', 80);
 
 // Border draws then star stamps on mastered tiles
 function shimmerMastered() {
@@ -757,7 +758,7 @@ shimmerMastered();
 
 // Open mastery info in the drilldown panel
 function openMasteryInfo() {
-  document.getElementById('drillTitle').textContent = 'How mastery works';
+  document.getElementById('drillTitle').textContent = 'كيف يشتغل الإتقان';
   document.getElementById('drillSub').textContent = '';
   var badge = document.getElementById('drillBadge');
   badge.innerHTML = '';
@@ -767,23 +768,23 @@ function openMasteryInfo() {
   body.innerHTML = '<div style="padding:0 4px">' +
     // What is it
     '<div style="margin-bottom:16px">' +
-      '<div style="font-size:14px;font-weight:600;margin-bottom:6px">What is mastery?</div>' +
-      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.6">Your mastery score combines practice work, in-class activity, and quiz results to measure how well you understand each topic.</div>' +
+      '<div style="font-size:14px;font-weight:600;margin-bottom:6px">وش هو الإتقان؟</div>' +
+      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.6">درجة الإتقان تجمع بين التمارين، نشاطك بالحصة، ونتايج الاختبارات عشان تقيس مدى فهمك لكل موضوع.</div>' +
     '</div>' +
     // Not a prediction — orange
     '<div style="background:#FFF3E0;border:1px solid rgba(230,140,30,0.2);border-radius:8px;padding:14px 16px;margin-bottom:16px">' +
-      '<div style="font-size:13px;font-weight:600;color:#9A5B13;margin-bottom:4px">This is not a prediction of your exam score</div>' +
-      '<div style="font-size:13px;color:#9A5B13;line-height:1.5">It measures how prepared you are based on what you\'ve done so far — not what score you\'ll get on the exam.</div>' +
+      '<div style="font-size:13px;font-weight:600;color:#9A5B13;margin-bottom:4px">هذي مو توقّع لدرجة اختبارك</div>' +
+      '<div style="font-size:13px;color:#9A5B13;line-height:1.5">تقيس مدى جاهزيتك بناءً على اللي سويته لحد الحين — مو الدرجة اللي بتطلعها بالاختبار.</div>' +
     '</div>' +
-    // 80+ / 70+ thresholds
+    // 80+ threshold
     '<div style="background:rgba(39,189,134,0.06);border-radius:8px;padding:14px 16px;margin-bottom:16px">' +
-      '<div style="font-size:13px;font-weight:600;margin-bottom:4px">Reach your target</div>' +
-      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.5">Once you hit <b>★ 80+</b> on a Quantitative topic or <b>★ 70+</b> on a Verbal topic, you\'ve mastered it. You can stop here — we\'ll let you know if you need to revisit it before the exam.</div>' +
+      '<div style="font-size:13px;font-weight:600;margin-bottom:4px">وصّل للهدف</div>' +
+      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.5">إذا وصلت <b>★ 80+</b> بأي موضوع، يعني أتقنته. تقدر توقف هنا — بنخبرك إذا تحتاج تراجعه قبل الاختبار.</div>' +
     '</div>' +
     // What to do
     '<div style="background:rgba(20,20,20,0.03);border-radius:8px;padding:14px 16px">' +
-      '<div style="font-size:13px;font-weight:600;margin-bottom:4px">How to improve</div>' +
-      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.5">Focus on topics you haven\'t yet mastered. Practice sessions are the fastest way to move your score.</div>' +
+      '<div style="font-size:13px;font-weight:600;margin-bottom:4px">كيف تتحسّن</div>' +
+      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.5">ركّز على المواضيع اللي ما أتقنتها بعد. التمارين أسرع طريقة ترفع درجتك.</div>' +
     '</div>' +
   '</div>';
 
