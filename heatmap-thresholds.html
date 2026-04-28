@@ -137,7 +137,7 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
     <span style="display:inline-flex;align-items:center;gap:4px"><span style="font-family:var(--font-mono);font-size:10px">0</span><span style="width:80px;height:24px;border-radius:4px;background:linear-gradient(90deg,#F03D3D,#FFCB45,#27BD86)"></span><span style="font-family:var(--font-mono);font-size:10px">100</span></span>
     <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-raised);border:1px solid rgba(20,20,20,0.1);position:relative;flex:none;overflow:hidden;display:grid;place-items:center"><span style="position:absolute;inset:0;opacity:0.15;background:repeating-linear-gradient(135deg,transparent,transparent 3px,rgba(0,0,0,0.4) 3px,rgba(0,0,0,0.4) 4px)"></span><svg width="12" height="12" viewBox="0 0 12 12" fill="#141414" style="position:relative;z-index:1"><path d="M6 0.5L7.5 4.2L11.5 4.6L8.5 7.2L9.3 11.2L6 9.3L2.7 11.2L3.5 7.2L0.5 4.6L4.5 4.2Z"/></svg></span> متقَن</span>
     <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-disabled);flex:none;display:grid;place-items:center"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="var(--fg-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="10" height="7" rx="1.5"/><path d="M5 8V5a3 3 0 0 1 6 0v3"/></svg></span> ما بدأت</span>
-    <button class="mastery-link" style="margin-inline-start:auto;background:none;border:0;font:inherit;font-size:11px;color:var(--fg-muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px;padding:0;flex:none" onclick="openMasteryInfo()">كيف يشتغل الإتقان؟</button>
+    <button class="mastery-link" style="margin-inline-start:auto;background:none;border:0;font:inherit;font-size:11px;color:var(--fg-muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px;padding:0;flex:none" onclick="openMasteryInfo()">كيف نوصل للإتقان؟</button>
   </div>
 </div>
 
@@ -196,7 +196,7 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
     <div class="drill__cta-box">
       <div id="drillNudge" style="font-size:13px;color:var(--fg-secondary);line-height:1.5;margin-bottom:14px"></div>
       <button class="btn-primary" id="drillCtaBtn" style="width:100%">تدرّب على هالموضوع</button>
-      <button style="background:none;border:0;font:inherit;font-size:11px;color:var(--fg-muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px;padding:0;display:block;width:100%;text-align:center;margin-top:12px" onclick="openMasteryInfo()">كيف يشتغل الإتقان؟</button>
+      <button style="background:none;border:0;font:inherit;font-size:11px;color:var(--fg-muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px;padding:0;display:block;width:100%;text-align:center;margin-top:12px" onclick="openMasteryInfo()">كيف نوصل للإتقان؟</button>
     </div>
   </div>
 </div>
@@ -760,7 +760,7 @@ shimmerMastered();
 
 // Open mastery info in the drilldown panel
 function openMasteryInfo() {
-  document.getElementById('drillTitle').textContent = 'كيف يشتغل الإتقان';
+  document.getElementById('drillTitle').textContent = 'وش هو الإتقان؟';
   document.getElementById('drillSub').textContent = '';
   var badge = document.getElementById('drillBadge');
   badge.innerHTML = '';
@@ -770,23 +770,22 @@ function openMasteryInfo() {
   body.innerHTML = '<div style="padding:0 4px">' +
     // What is it
     '<div style="margin-bottom:16px">' +
-      '<div style="font-size:14px;font-weight:600;margin-bottom:6px">وش هو الإتقان؟</div>' +
-      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.6">درجة الإتقان تجمع بين التمارين، نشاطك بالحصة، ونتايج الاختبارات عشان تقيس مدى فهمك لكل موضوع.</div>' +
+      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.6">درجة الإتقان في خريطتك تجمع بين التمارين، نشاطك بالحصة، ونتايج الاختبارات علشان تقدر تقيس مدى فهمك لكل موضوع.</div>' +
     '</div>' +
     // Not a prediction — orange
     '<div style="background:#FFF3E0;border:1px solid rgba(230,140,30,0.2);border-radius:8px;padding:14px 16px;margin-bottom:16px">' +
       '<div style="font-size:13px;font-weight:600;color:#9A5B13;margin-bottom:4px">هذي مو توقّع لدرجة اختبارك</div>' +
-      '<div style="font-size:13px;color:#9A5B13;line-height:1.5">تقيس مدى جاهزيتك بناءً على اللي سويته لحد الحين — مو الدرجة اللي بتطلعها بالاختبار.</div>' +
+      '<div style="font-size:13px;color:#9A5B13;line-height:1.5">الدرجة تقيس مدى جاهزيتك بناءً على اللي سويته لحد الحين — مو الدرجة اللي بتاخذها بالاختبار الحقيقي.</div>' +
     '</div>' +
     // 80+ threshold
     '<div style="background:rgba(39,189,134,0.06);border-radius:8px;padding:14px 16px;margin-bottom:16px">' +
-      '<div style="font-size:13px;font-weight:600;margin-bottom:4px">وصّل للهدف</div>' +
+      '<div style="font-size:13px;font-weight:600;margin-bottom:4px">النجمة يعني وصلت للهدف!</div>' +
       '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.5">إذا وصلت <b>★ 80+</b> بأي موضوع، يعني أتقنته. تقدر توقف هنا — بنخبرك إذا تحتاج تراجعه قبل الاختبار.</div>' +
     '</div>' +
     // What to do
     '<div style="background:rgba(20,20,20,0.03);border-radius:8px;padding:14px 16px">' +
-      '<div style="font-size:13px;font-weight:600;margin-bottom:4px">كيف تتحسّن</div>' +
-      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.5">ركّز على المواضيع اللي ما أتقنتها بعد. التمارين أسرع طريقة ترفع درجتك.</div>' +
+      '<div style="font-size:13px;font-weight:600;margin-bottom:4px">كيف تتحسّن وكيف نغير الوان خريطتنا؟</div>' +
+      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.5">ركّز على المواضيع اللي ما أتقنتها باقي وترى حل التمارين أسرع طريقة تقدر ترفع فيها درجتك.</div>' +
     '</div>' +
   '</div>';
 
