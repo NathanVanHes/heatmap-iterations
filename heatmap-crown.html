@@ -132,7 +132,7 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 <div style="background:var(--bg-raised);border-bottom:1px solid rgba(20,20,20,0.06);position:sticky;top:64px;z-index:9">
   <div style="max-width:720px;margin:0 auto;padding:10px 40px;display:flex;align-items:center;gap:12px 16px;font-size:11px;color:var(--fg-muted);flex-wrap:wrap" class="key-inner">
     <span style="display:inline-flex;align-items:center;gap:4px"><span style="font-family:var(--font-mono);font-size:10px">0</span><span style="width:80px;height:24px;border-radius:4px;background:linear-gradient(90deg,#F03D3D,#FFCB45,#27BD86)"></span><span style="font-family:var(--font-mono);font-size:10px">100</span></span>
-    <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-raised);border:1px solid rgba(20,20,20,0.1);position:relative;flex:none;overflow:hidden;display:grid;place-items:center"><img src="%F0%9F%91%91.png" width="16" height="16" style="position:relative;z-index:1"></span> متقَن</span>
+    <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-raised);border:1px solid rgba(20,20,20,0.1);position:relative;flex:none;overflow:hidden;display:grid;place-items:center"><svg width="16" height="10" viewBox="0 0 58 37" fill="#141414" style="position:relative;z-index:1"><path d="M58 9.95309V34.583C58 35.6508 57.1344 36.5163 56.0667 36.5163H1.93333C0.865583 36.5163 0 35.6508 0 34.583V9.95308C0 8.09172 2.3724 7.30551 3.48403 8.79848L12.481 20.8819L27.4493 0.778725C28.2224 -0.259574 29.7776 -0.259575 30.5507 0.778723L45.519 20.8819L54.516 8.79848C55.6276 7.3055 58 8.09172 58 9.95309Z"/></svg></span> متقَن</span>
     <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-disabled);flex:none;display:grid;place-items:center"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="var(--fg-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="10" height="7" rx="1.5"/><path d="M5 8V5a3 3 0 0 1 6 0v3"/></svg></span> ما بدأت</span>
     <button class="mastery-link" style="margin-inline-start:auto;background:none;border:0;font:inherit;font-size:11px;color:var(--fg-muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px;padding:0;flex:none" onclick="openMasteryInfo()">كيف نوصل للإتقان؟</button>
   </div>
@@ -143,7 +143,7 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
   <div class="grid-section">
     <div class="grid-section__header">
       <div class="grid-section__label">الجزء الكمي</div>
-      <div class="grid-section__right"><span class="grid-section__exam" id="quantExam" style="display:none">الاختبار بعد ٥ أيام ·</span> <span style="display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--fg-secondary)"><img src="%F0%9F%91%91.png" width="14" height="14" style="flex:none;vertical-align:-2px">80+</span> <span style="font-size:11px;color:var(--fg-muted);font-weight:400">المستوى ١</span></div>
+      <div class="grid-section__right"><span class="grid-section__exam" id="quantExam" style="display:none">الاختبار بعد ٥ أيام ·</span> <span style="display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--fg-secondary)"><svg width="14" height="9" viewBox="0 0 58 37" fill="#141414" style="flex:none"><path d="M58 9.95309V34.583C58 35.6508 57.1344 36.5163 56.0667 36.5163H1.93333C0.865583 36.5163 0 35.6508 0 34.583V9.95308C0 8.09172 2.3724 7.30551 3.48403 8.79848L12.481 20.8819L27.4493 0.778725C28.2224 -0.259574 29.7776 -0.259575 30.5507 0.778723L45.519 20.8819L54.516 8.79848C55.6276 7.3055 58 8.09172 58 9.95309Z"/></svg>80+</span> <span style="font-size:11px;color:var(--fg-muted);font-weight:400">المستوى ١</span></div>
     </div>
     <div class="tile-grid" id="mathGrid"></div>
   </div>
@@ -152,7 +152,7 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
   <div class="grid-section">
     <div class="grid-section__header">
       <div class="grid-section__label">الجزء اللفظي</div>
-      <div class="grid-section__right"><span class="grid-section__exam" id="verbalExam" style="display:none">الاختبار بعد ٧ أيام ·</span> <span style="display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--fg-secondary)"><img src="%F0%9F%91%91.png" width="14" height="14" style="flex:none;vertical-align:-2px">80+</span> <span style="font-size:11px;color:var(--fg-muted);font-weight:400">المستوى ٢</span></div>
+      <div class="grid-section__right"><span class="grid-section__exam" id="verbalExam" style="display:none">الاختبار بعد ٧ أيام ·</span> <span style="display:inline-flex;align-items:center;gap:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--fg-secondary)"><svg width="14" height="9" viewBox="0 0 58 37" fill="#141414" style="flex:none"><path d="M58 9.95309V34.583C58 35.6508 57.1344 36.5163 56.0667 36.5163H1.93333C0.865583 36.5163 0 35.6508 0 34.583V9.95308C0 8.09172 2.3724 7.30551 3.48403 8.79848L12.481 20.8819L27.4493 0.778725C28.2224 -0.259574 29.7776 -0.259575 30.5507 0.778723L45.519 20.8819L54.516 8.79848C55.6276 7.3055 58 8.09172 58 9.95309Z"/></svg>80+</span> <span style="font-size:11px;color:var(--fg-muted);font-weight:400">المستوى ٢</span></div>
     </div>
     <div class="tile-grid" id="readingGrid"></div>
   </div>
@@ -200,8 +200,8 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 
 <script>
 // Crown SVG used throughout instead of star
-var crownSvg14 = '<img src="%F0%9F%91%91.png" width="18" height="18" style="display:block" class="mastery-crown">';
-var crownSvg24green = '<img src="%F0%9F%91%91.png" width="28" height="28" style="display:block">';
+var crownSvg14 = '<svg width="18" height="12" viewBox="0 0 58 37" fill="#141414" class="mastery-crown"><path d="M58 9.95309V34.583C58 35.6508 57.1344 36.5163 56.0667 36.5163H1.93333C0.865583 36.5163 0 35.6508 0 34.583V9.95308C0 8.09172 2.3724 7.30551 3.48403 8.79848L12.481 20.8819L27.4493 0.778725C28.2224 -0.259574 29.7776 -0.259575 30.5507 0.778723L45.519 20.8819L54.516 8.79848C55.6276 7.3055 58 8.09172 58 9.95309Z"/></svg>';
+var crownSvg24green = '<svg width="28" height="18" viewBox="0 0 58 37" fill="#27BD86"><path d="M58 9.95309V34.583C58 35.6508 57.1344 36.5163 56.0667 36.5163H1.93333C0.865583 36.5163 0 35.6508 0 34.583V9.95308C0 8.09172 2.3724 7.30551 3.48403 8.79848L12.481 20.8819L27.4493 0.778725C28.2224 -0.259574 29.7776 -0.259575 30.5507 0.778723L45.519 20.8819L54.516 8.79848C55.6276 7.3055 58 8.09172 58 9.95309Z"/></svg>';
 
 // t(name, score, weekStart, semStart, exam, startWeek)
 function t(name, score, weekStart, semStart, exam, startWeek) {
@@ -516,8 +516,9 @@ function renderChart(data, labelTexts, mastered, masteryLine) {
   // Mastery threshold line (full width) — crown icon instead of star
   svg += '<line x1="' + pad.left + '" y1="' + masteryY + '" x2="' + (pad.left + cw) + '" y2="' + masteryY + '" stroke="rgba(20,20,20,0.2)" stroke-dasharray="4,3"/>';
 
-  // Mastery label with crown symbol
-  svg += '<text x="' + pad.left + '" y="' + (masteryY - 7) + '" font-family="\'JetBrains Mono\',monospace" font-size="10" font-weight="600" fill="#74716C">\uD83D\uDC51 ' + displayMastery(masteryLine) + '+</text>';
+  // Mastery label with crown SVG inline
+  var crownLabelY = masteryY - 16;
+  svg += '<g transform="translate(' + pad.left + ',' + crownLabelY + ')"><g transform="scale(0.2)" fill="#74716C"><path d="M58 9.95309V34.583C58 35.6508 57.1344 36.5163 56.0667 36.5163H1.93333C0.865583 36.5163 0 35.6508 0 34.583V9.95308C0 8.09172 2.3724 7.30551 3.48403 8.79848L12.481 20.8819L27.4493 0.778725C28.2224 -0.259574 29.7776 -0.259575 30.5507 0.778723L45.519 20.8819L54.516 8.79848C55.6276 7.3055 58 8.09172 58 9.95309Z"/></g><text x="16" y="7" font-family="\'JetBrains Mono\',monospace" font-size="10" font-weight="600" fill="#74716C">' + displayMastery(masteryLine) + '+</text></g>';
 
   // Area fill for mastered
   if (mastered && points.length > 1) {
@@ -766,7 +767,7 @@ function openMasteryInfo() {
     '</div>' +
     '<div style="background:rgba(39,189,134,0.06);border-radius:8px;padding:14px 16px;margin-bottom:16px">' +
       '<div style="font-size:13px;font-weight:600;margin-bottom:4px">التاج يعني وصلت للهدف!</div>' +
-      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.5">إذا وصلت <b><img src="%F0%9F%91%91.png" width="14" height="14" style="vertical-align:-2px"> 80+</b> بأي موضوع، يعني أتقنته. تقدر توقف هنا — بنخبرك إذا تحتاج تراجعه قبل الاختبار.</div>' +
+      '<div style="font-size:13px;color:var(--fg-secondary);line-height:1.5">إذا وصلت <b><svg width="14" height="9" viewBox="0 0 58 37" fill="#141414" style="vertical-align:-1px"><path d="M58 9.95309V34.583C58 35.6508 57.1344 36.5163 56.0667 36.5163H1.93333C0.865583 36.5163 0 35.6508 0 34.583V9.95308C0 8.09172 2.3724 7.30551 3.48403 8.79848L12.481 20.8819L27.4493 0.778725C28.2224 -0.259574 29.7776 -0.259575 30.5507 0.778723L45.519 20.8819L54.516 8.79848C55.6276 7.3055 58 8.09172 58 9.95309Z"/></svg> 80+</b> بأي موضوع، يعني أتقنته. تقدر توقف هنا — بنخبرك إذا تحتاج تراجعه قبل الاختبار.</div>' +
     '</div>' +
     '<div style="background:rgba(20,20,20,0.03);border-radius:8px;padding:14px 16px">' +
       '<div style="font-size:13px;font-weight:600;margin-bottom:4px">كيف تتحسّن وكيف نغير الوان خريطتنا؟</div>' +
