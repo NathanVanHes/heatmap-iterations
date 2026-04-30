@@ -132,7 +132,7 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 <div style="background:var(--bg-raised);border-bottom:1px solid rgba(20,20,20,0.06);position:sticky;top:64px;z-index:9">
   <div style="max-width:720px;margin:0 auto;padding:10px 40px;display:flex;align-items:center;gap:12px 16px;font-size:11px;color:var(--fg-muted);flex-wrap:wrap" class="key-inner">
     <span style="display:inline-flex;align-items:center;gap:4px"><span style="font-family:var(--font-mono);font-size:10px">0</span><span style="width:80px;height:24px;border-radius:4px;background:linear-gradient(90deg,#F03D3D,#FFCB45,#27BD86)"></span><span style="font-family:var(--font-mono);font-size:10px">100</span></span>
-    <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-raised);border:1px solid rgba(20,20,20,0.1);position:relative;flex:none;overflow:hidden;display:grid;place-items:center"><svg width="16" height="10" viewBox="0 0 13 9" fill="#141414" style="position:relative;z-index:1"><path d="M11.6935 8.06452H0.806452L0 1.6129L3.22581 4.03226L6.45161 0L9.67742 4.03226L12.5 1.6129L11.6935 8.06452Z"/></svg></span> متقَن</span>
+    <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-raised);border:1px solid rgba(20,20,20,0.1);position:relative;flex:none;overflow:hidden;display:grid;place-items:center"><svg width="14" height="9" viewBox="0 0 13 9" fill="#141414" style="position:relative;z-index:1"><path d="M11.6935 8.06452H0.806452L0 1.6129L3.22581 4.03226L6.45161 0L9.67742 4.03226L12.5 1.6129L11.6935 8.06452Z"/></svg></span> متقَن</span>
     <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:24px;height:24px;border-radius:4px;background:var(--bg-disabled);flex:none;display:grid;place-items:center"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="var(--fg-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="10" height="7" rx="1.5"/><path d="M5 8V5a3 3 0 0 1 6 0v3"/></svg></span> ما بدأت</span>
     <button class="mastery-link" style="margin-inline-start:auto;background:none;border:0;font:inherit;font-size:11px;color:var(--fg-muted);cursor:pointer;text-decoration:underline;text-underline-offset:2px;padding:0;flex:none" onclick="openMasteryInfo()">كيف نوصل للإتقان؟</button>
   </div>
@@ -200,8 +200,8 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 
 <script>
 // Crown SVG used throughout instead of star
-var crownSvg14 = '<svg width="18" height="12" viewBox="0 0 13 9" fill="#141414" class="mastery-crown"><path d="M11.6935 8.06452H0.806452L0 1.6129L3.22581 4.03226L6.45161 0L9.67742 4.03226L12.5 1.6129L11.6935 8.06452Z"/></svg>';
-var crownSvg24green = '<svg width="28" height="18" viewBox="0 0 13 9" fill="#27BD86"><path d="M11.6935 8.06452H0.806452L0 1.6129L3.22581 4.03226L6.45161 0L9.67742 4.03226L12.5 1.6129L11.6935 8.06452Z"/></svg>';
+var crownSvg14 = '<svg width="16" height="11" viewBox="0 0 13 9" fill="#141414" class="mastery-crown"><path d="M11.6935 8.06452H0.806452L0 1.6129L3.22581 4.03226L6.45161 0L9.67742 4.03226L12.5 1.6129L11.6935 8.06452Z"/></svg>';
+var crownSvg24green = '<svg width="24" height="17" viewBox="0 0 13 9" fill="#27BD86"><path d="M11.6935 8.06452H0.806452L0 1.6129L3.22581 4.03226L6.45161 0L9.67742 4.03226L12.5 1.6129L11.6935 8.06452Z"/></svg>';
 
 // t(name, score, weekStart, semStart, exam, startWeek)
 function t(name, score, weekStart, semStart, exam, startWeek) {
