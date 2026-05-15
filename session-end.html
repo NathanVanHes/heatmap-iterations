@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Session Start - Noon Academy</title>
+<title>Session End - Noon Academy</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 *{box-sizing:border-box}
@@ -36,11 +36,14 @@ body{background:var(--bg);margin:0;font-family:var(--font-sans);color:var(--fg);
 
 .gbar{position:relative;margin-top:10px}
 .gbar__track{width:100%;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--red),var(--gold),var(--green));opacity:0.2}
-.gbar__pos{position:absolute;top:4px;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;border:2.5px solid var(--bg);box-shadow:0 0 0 1px rgba(20,20,20,0.15),0 1px 3px rgba(0,0,0,0.15);transition:left 0.8s cubic-bezier(0.22,0.61,0.36,1)}
+.gbar__line{position:absolute;top:4px;transform:translateY(-50%);height:3px;border-radius:1.5px;z-index:1}
+.gbar__start{position:absolute;top:4px;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;border:2px solid var(--bg);box-shadow:0 0 0 1px rgba(20,20,20,0.15);z-index:2}
+.gbar__pos{position:absolute;top:4px;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;border:2.5px solid var(--bg);box-shadow:0 0 0 1px rgba(20,20,20,0.15),0 1px 3px rgba(0,0,0,0.15);z-index:3;transition:left 0.8s cubic-bezier(0.22,0.61,0.36,1)}
 .gbar__target{position:absolute;top:0;height:8px;width:2px;background:var(--fg);border-radius:1px;opacity:0.2}
 .gbar__labels{display:flex;margin-top:6px;position:relative}
 .gbar__labels span{font-family:var(--font-mono);font-size:10px;color:var(--fg-muted)}
 .gbar__mastery-label{position:absolute;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;font-weight:600;color:var(--fg-secondary);display:flex;align-items:center;gap:2px}
+.gbar__gain-label{position:absolute;transform:translateX(-50%);font-family:var(--font-mono);font-size:10px;font-weight:600;color:var(--green)}
 </style>
 </head>
 <body>
@@ -63,8 +66,10 @@ function scoreColor(s) {
 
 function renderTopicWithBar(t) {
   var col = scoreColor(t.score);
+  var startCol = scoreColor(t.startScore);
   var gap = mastery - t.score;
   var isMastered = t.score >= mastery;
+  var gain = t.score - t.startScore;
 
   var h = '<div class="topic">';
 
@@ -86,26 +91,41 @@ function renderTopicWithBar(t) {
   // Gradient bar
   h += '<div class="gbar">';
   h += '<div class="gbar__track"></div>';
+
+  // Connecting line between start and current
+  h += '<div class="gbar__line" style="left:' + t.startScore + '%;width:' + (t.score - t.startScore) + '%;background:' + col + '"></div>';
+
+  // Small start marker
+  h += '<div class="gbar__start" style="left:' + t.startScore + '%;background:' + startCol + '"></div>';
+
+  // Large current position marker
   h += '<div class="gbar__pos" style="left:' + t.score + '%;background:' + col + '"></div>';
 
   if (!isMastered) {
     h += '<div class="gbar__target" style="left:' + mastery + '%"></div>';
-    h += '<div class="gbar__labels">';
-    h += '<span class="gbar__mastery-label" style="left:' + mastery + '%">' + crownInline + ' ' + mastery + '</span>';
-    h += '</div>';
   }
+
+  h += '<div class="gbar__labels">';
+  if (!isMastered) {
+    h += '<span class="gbar__mastery-label" style="left:' + mastery + '%">' + crownInline + ' ' + mastery + '</span>';
+  }
+  if (gain > 0) {
+    h += '<span class="gbar__gain-label" style="left:' + t.score + '%">+' + gain + '</span>';
+  }
+  h += '</div>';
 
   h += '</div>';
   h += '</div></div>';
   return h;
 }
 
+// startScore = where they were at session start, score = where they are now
 var topics = [
-  { name: 'المستقيمات', score: 18 },
-  { name: 'القوى', score: 35 },
-  { name: 'الاعداد و خصائصها', score: 72 },
-  { name: 'النسبة والتناسب', score: 78 },
-  { name: 'الإحصاء', score: 94 },
+  { name: 'المستقيمات', startScore: 18, score: 29 },
+  { name: 'القوى', startScore: 35, score: 48 },
+  { name: 'الاعداد و خصائصها', startScore: 72, score: 81 },
+  { name: 'النسبة والتناسب', startScore: 78, score: 84 },
+  { name: 'الإحصاء', startScore: 94, score: 97 },
 ];
 
 var h = '';
